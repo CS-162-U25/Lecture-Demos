@@ -19,7 +19,7 @@ char prompt_for_direction(std::string prompt) {
 	bool last_input_is_valid;
 	char input;
 	do {
-		std::cout << "Enter W/A/S/D" << std::endl; // Ask the user for W/A/S/D
+		std::cout << prompt << std::endl; // Ask the user for W/A/S/D
 		std::cin >> input;
 	
 		if (input == 'W' || input == 'A' || input == 'S' || input == 'D') {
@@ -36,9 +36,25 @@ char prompt_for_direction(std::string prompt) {
 	// Any code here is dead code.
 }
 
+void change_me(double d) {
+	d = 9.81;
+
+	// return 5; // Illegal.
+}
+
 // To "call" a function means to use it, or to execute it
 
 const double pi = 3.1415;
+
+void populate_array(float array[], int size) {
+	for (int i = 0; i < size; i++) {
+		if (i == 53) {
+			array[i] = 0.1;
+		} else {
+			array[i] = 5.1;
+		}
+	}
+}
 
 int main() {
 	// A scope is loosely a set of curly braces. Dictates where symbols
@@ -85,11 +101,37 @@ int main() {
 	// Now, the original x is unshadowed.
 	std::cout << x << std::endl; // Prints: 3
 
-	// Functions
-	char user_input = prompt_for_direction("Enter W/A/S/D: ", 1);
+	double d = 3.14;
+	// Expression is a piece of code with a type and a value
+	change_me(d);
+	std::cout << d << std::endl; // Prints 3.14. Parameters are COPIES of arguments.
 
-	std::cout << compute_area(4, 5) << std::endl;
-	std::cout << compute_area(3, 7) << std::endl;
+	// Functions
+	char user_input = prompt_for_direction("Enter W/A/S/D: ");
 
 	// Arrays
+	// Arrays are series of values. Homogeneous (all the same type).
+	// "Regular" arrays are of a fixed, compile-time constant size.
+	// 	(An array's size cannot be changed once created).
+	//	(The size must be a constant that is known at the time of compilation)
+	float cool_numbers[100];
+
+	// Arrays are indexed by zero => The first element has index 0
+	cool_numbers[0] = 3.14; // Set the first float to 3.14
+	cool_numbers[1] = 9.81; // Set the second float to 9.81
+	std::cout << cool_numbers[0] << std::endl; // Print the first float
+
+	// For an array of size N, the valid indices are [0, N - 1]
+	// If you try to access an element within an array at an invalid index,
+	// 	undefined behavior
+	
+	// This instance of undefined behavior is called a buffer overread
+	// / buffer overflow
+	// std::cout << cool_numbers[100] << std::endl; // Undefined behavior
+	// cool_numbers[100] = 0.0; // Undefined behavior
+
+	// How to pass an array into a function:
+	populate_array(cool_numbers, 100);
+
+	std::cout << cool_numbers[49] << std::endl; // Prints 5.1
 }
