@@ -1,5 +1,10 @@
 #include <iostream>
 
+// The fundamental difference between dynamic memory and automatic memory is
+// when they're freed. Memory with "dynamic storage duration" is freed
+// via the delete [] operator. Memory with "automatic storage duration" is
+// freed when its corresponding variable falls out of scope.
+
 // Dynamic memory: Memory that is allocated and freed "manually" with special
 // keywords
 //
@@ -34,6 +39,11 @@ int* append_value(int* old_array, int old_size, int value) {
 	return new_array;
 }
 
+bool* create_true() {
+	bool my_bool = true;
+	return &my_bool;
+}
+
 int main() {
 	// "Regular" arrays in C++ have some restriction:
 	// 	1. Homogeneous
@@ -42,6 +52,14 @@ int main() {
 
 	// Arrays are contiguous. In memory, an array is just one big block
 	// of bytes. array[0] is adjacent to array[1]
+
+	// This is a dangling pointer. A pointer that points to data that
+	// no longer exists.
+	bool* x = create_true();
+	
+	// Use-after-free. Dereferencing a dangling pointer.
+	// std::cout << *x << std::endl; // Undefined behavior
+	// *x = false; // Undefined behavior
 
 	// Create an array on the heap of size 1
 	int* array = new int[1];
