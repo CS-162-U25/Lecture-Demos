@@ -1,0 +1,3 @@
+Suppose in main.cpp, I include "a.hpp". Suppose a.hpp includes "b.hpp" and "c.hpp". Suppose each of those two files include "d.hpp"
+
+
