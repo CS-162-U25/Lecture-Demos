@@ -13,32 +13,20 @@
 // data, you do so by calling a specific member function of its type that
 // does the operation that you want to perform.
 
-// Tool #1: Member functions.
-// A member function is a function that belongs to an object.
-// An object is a variable whose type is a structure type or a class.
-// In C++, a class is exactly the same thing as a structure type, EXCEPT
-// in a class, members are private by default, whereas in a structure type,
-// they're public by default.
-
-// A common convention is, if you want to have private members, you should USUALLY
-// use a class. If you want member functions, you should USUALLY use a class.
-// Another interpretation: structure types should only have public member variables.
-// Such types are sometimes called "POD" types (plain-old-data)
+// Information hiding: Making member variables private.
+// Encapsulation: Bundling, or co-locating, hidden data with public behavior
+// 	that operate on that data
 class circle {
-// Tool #2: Access modifiers
-// 	public: A public member can be accessed from anywhere
-// 	private: A private member can only be accessed by member functions of
-// 		the same data type
-private:
-	double radius; // Member variable
+private: // These members can only be accessed from within member functions of
+	 // the circle structure type.
+	// These things are no longer interface details, but rather implementation
+	// details.
+	double radius; // Member variable, represents radius in meters.
 public:
-	// This member function is called a "setter", AKA "mutator"
-	void set_radius_in_meters(double value);
-
-	// This member function is called a "getter", AKA "accessor"
-	double get_radius_in_meters();
-
-	double compute_area(); // Function prototype
+	// For CS 162, just get it working
+	// Remember the goal: to create stable interfaces
+	double get_radius();
+	void set_radius(double radius);
 };
 
 #endif
