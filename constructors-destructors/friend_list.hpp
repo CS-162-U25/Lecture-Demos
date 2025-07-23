@@ -3,6 +3,14 @@
 
 #include "person.hpp"
 
+// Constructors are special member functions that are automatically called
+// the moment an object of that class is declared. The purpose of a constructor
+// is to "set up" the object.
+
+// Destructors are special member functions that are automatically called
+// the moment an object of that class is about to be freed from memory. The
+// purpose of a destructor is to "tear down" the object.
+
 // 1. Default member initializers
 // 2. Create some sort of initialize() member function
 // 3. Constructors. Just a special member function that's automatically called
@@ -12,8 +20,8 @@
 class friend_list {
 private:
 	person owner;
-	person* friends;
-	int num_friends;
+	person* friends = nullptr;
+	int num_friends = 0;
 public:
 	void init(const person& owner, int num_friends);
 
@@ -27,6 +35,13 @@ public:
 
 	// Every constructor in a given class must have a different parameter
 	// list
+	
+
+	// Destructors have no return types.
+	// Destructors have no parameters.
+	// Destructors must be named after their classes, but with a tilde
+	// 	before the name (~)
+	~friend_list();
 };
 
 #endif

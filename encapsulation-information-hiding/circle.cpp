@@ -1,6 +1,6 @@
 #include "circle.hpp"
 
-double circle::get_radius() {
+double circle::get_radius() const {
 	return this->radius;
 }
 

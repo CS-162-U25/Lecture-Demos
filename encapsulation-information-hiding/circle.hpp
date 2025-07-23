@@ -25,7 +25,14 @@ private: // These members can only be accessed from within member functions of
 public:
 	// For CS 162, just get it working
 	// Remember the goal: to create stable interfaces
-	double get_radius();
+	
+	// The member function is now const.
+	
+	// A const member function cannot modify the member variables of the
+	// object. A const member function cannot call other non-const member
+	// functions.
+	double get_radius() const;
+
 	void set_radius(double radius);
 };
 

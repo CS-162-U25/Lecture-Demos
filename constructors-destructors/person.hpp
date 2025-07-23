@@ -6,6 +6,10 @@
 class person {
 private:
 	std::string name = "Ozzy";
+public:
+	person();
+
+	person(const std::string& name);
 };
 
 #endif
