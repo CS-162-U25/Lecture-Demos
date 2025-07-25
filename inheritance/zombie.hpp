@@ -19,6 +19,7 @@
 
 class zombie : public monster {
 private:
+	double sanity = 1.0;
 public:
 	zombie();
 	zombie(int hp);
@@ -26,6 +27,11 @@ public:
 	// This is referred to as extension
 	void eat_brains();
 	~zombie();
+
+	// This idea here, declaring a function with the same name
+	// and same parameter list in a derived class as one that was
+	// declared in the base class, is called "overriding"
+	void print();
 };
 
 #endif

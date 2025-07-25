@@ -9,12 +9,25 @@ int main() {
 	zombie z;
 	z.print();
 
-	zombie z2(20);
-	z2.print();
-
 	vampire v;
 	v.print();
 
-	vampire v2(30);
-	v2.print();
+	// Type casting: Converting an expression from one type to another
+	// Upcasting is type casting up an inheritance tree.
+
+	//              monster
+	//
+	//    zombie               vampire
+	//
+	//  ghoul  baby_zombie
+	v.take_damage();
+	v.print();
+	monster m = v;
+	
+	m.print();
+
+	// Yes, there is such thing as downcasting.
+	// No, you shouldn't ever do it.
+	// dynamic_cast
+
 }
