@@ -20,6 +20,10 @@
 //   	where dynamic type != static type, is when you upcast pointers or
 //   	references.
 
+// Clone functions. A clone function is a virtual function that you override
+// in the derived classes in order to facilitate creating copies of
+// objects through their "polymorphic handles" (upcasted pointer or reference)
+
 void do_monster_turns(
 		player& p,
 		monster** monsters,
@@ -62,14 +66,32 @@ int main() {
 		vampire* v = new vampire;
 		monsters[i] = v;
 	}
+
+	// What does this do? This line of code creates a copy of a pointer
+	// monster* copy = monsters[0];
 	
+	// What does this do? This is a syntax error. Instantiating an abstract
+	// class.
+	// monster m = *(monsters[0]);
 
 	do_monster_turns(p, monsters, 25);
 	p.print();
 	do_monster_turns(p, monsters, 25);
 	p.print();
+
+	// Any class that has at least one pure virtual function is said to
+	// be an abstract class.
+	// Abstract classes cannot even be instantiated.
+	// monster m; // THIS is the syntax error
+	// m.attack_player(p);
+	// vampire v;
+	// monster m = v; // This is also a syntax error
+	
 	
 	for (int i = 0; i < 25; i++) {
+		// This line of code calls destructor
+		// By default, this will call the monster destructor.
+		// This does technically result in some undefined behavior.
 		delete monsters[i];
 	}
 	delete [] monsters;

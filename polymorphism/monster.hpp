@@ -30,7 +30,15 @@ public:
 	// The virtual keyword is an indicator to your computer that you 
 	// want all function calls to this function to be bound dynamically
 	// rather than statically.
-	virtual void attack_player(player& p);
+	
+	// When prototyping a virtual function, you can optionally make it a
+	// PURE VIRTUAL function by assigning it the value of 0
+	
+	// A pure virtual function is a function that you do not HAVE to define
+	// in the base class
+	virtual void attack_player(player& p) = 0;
+
+	virtual ~monster();
 };
 
 #endif
