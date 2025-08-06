@@ -39,6 +39,8 @@ public:
 	virtual void attack_player(player& p) = 0;
 
 	virtual ~monster();
+
+	virtual monster* clone() = 0;
 };
 
 #endif

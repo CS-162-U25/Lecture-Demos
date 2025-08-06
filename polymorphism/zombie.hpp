@@ -33,6 +33,8 @@ public:
 	// and same parameter list in a derived class as one that was
 	// declared in the base class, is called "overriding"
 	void print();
+
+	monster* clone();
 };
 
 #endif

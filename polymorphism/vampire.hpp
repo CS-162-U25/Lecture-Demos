@@ -11,9 +11,11 @@ public:
 	vampire();
 	vampire(int hp);
 
-	void attack_player(player& p);
+	void attack_player(player& p) override;
 	void suck_blood();
 	void print();
+
+	monster* clone() override;
 };
 
 #endif

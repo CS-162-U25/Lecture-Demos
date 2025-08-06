@@ -1,3 +1,5 @@
+#include <iostream>
+
 #include "player.hpp"
 #include "zombie.hpp"
 #include "vampire.hpp"
@@ -73,6 +75,11 @@ int main() {
 	// What does this do? This is a syntax error. Instantiating an abstract
 	// class.
 	// monster m = *(monsters[0]);
+	
+	int n;
+	std::cout << "Which monster do you want to copy?: ";
+	std::cin >> n;
+	monster* copy = monsters[n]->clone();
 
 	do_monster_turns(p, monsters, 25);
 	p.print();

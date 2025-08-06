@@ -25,3 +25,9 @@ void zombie::print() {
 	this->monster::print(); // This calls the monster::print() member function
 	std::cout << "My sanity is: " << this->sanity << std::endl;
 }
+
+monster* zombie::clone() {
+	zombie* copy = new zombie;
+	*copy = *this; // This calls AOO
+	return copy;
+}

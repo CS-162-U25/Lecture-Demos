@@ -21,3 +21,9 @@ void vampire::print() {
 	this->monster::print();
 	std::cout << "My strength is: " << this->strength << std::endl;
 }
+
+monster* vampire::clone() {
+	vampire* copy = new vampire;
+	*copy = *this; // This calls AOO
+	return copy;
+}
