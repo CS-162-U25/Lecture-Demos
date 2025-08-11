@@ -17,6 +17,14 @@ int main() {
 	list_of_numbers.push_back(3.14);
 	list_of_numbers.push_back(9.81);
 
+	// To add something to the end of a dynamic array:
+	// 1. Create a new array that's bigger
+	// 2. Copy elements from the old array to the new array
+	// 3. Delete the old array
+	// 4. Add the new element to its spot in the new array
+	// 5. Update the size
+	// 6. Update the pointer
+
 	std::cout << "The first number in our vector is: " <<
 		list_of_numbers[0] << std::endl;
 
@@ -122,5 +130,5 @@ int main() {
 	}
 	std::cout << std::endl;
 
-	
+	// Removing elements from a vector  never affects capacity
 }
