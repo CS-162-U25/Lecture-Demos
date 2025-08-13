@@ -20,6 +20,7 @@ int fib(int n) {
 	}
 
 	// In all other cases, use recursion:
+	// if n is 4, that means we have to compute 2
 	return fib(n - 1) + fib(n - 2);
 }
 
@@ -32,4 +33,12 @@ int main() {
 	// Some problems are solved well with recursion
 	
 	// Some problems are not (depending on the programming language)
+	
+	std::cout << fib(1) << std::endl;
+	std::cout << fib(2) << std::endl;
+
+	std::cout << fib(4) << std::endl;
+
+	std::cout << fib(5) << std::endl;
+	std::cout << fib(6) << std::endl;
 }
