@@ -1,0 +1,31 @@
+Selection sort:
+	1. Find the smallest element in the list
+	2. Put it in the front of the list
+	3. Of the remaining elements, find the smallest, and then put it in
+		the next position.
+	4. Repeat step 3 over and over again until you've put all of the
+		elements in their rightful places
+
+for (int i = 0; i < N; i++) {
+	int smallest = arr[i]
+	for each element in arr, starting at i:
+		if (the current element < smallest):
+			smallest = the current element
+	swap the element at index i with the ith smallest element
+}
+
+
+Insertion sort:
+	1. Maintain two parts of the list, an unsorted part and a sorted part
+	2. Grab the first element in the unsorted part of the list, and you
+		"insert it" where it's supposed to go in the sorted part
+		of the list
+	3. Shift your line over, and repeat from step 2
+
+
+Merge sort: The "obvious" recursive sorting algorithm. Assume the list is of length N.
+	0. Base case: If the list's length (N) is less than or equal to 1,
+		then it's already sorted. Do nothing.
+	1. Split the list into two smaller half-lists.
+	2. Sort those half-lists. Recursively.
+	3. Somehow merge those two sorted half-lists into one big sorted list
